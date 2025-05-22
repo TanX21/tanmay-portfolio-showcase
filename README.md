@@ -45,7 +45,7 @@ This portfolio website showcases Tanmay Dhiman's skills, projects, and professio
 
 ## Deployment
 
-This project is deployed and accessible at [https://tanmay-portfolio.vercel.app](https://tanmay-portfolio.vercel.app)
+This project is deployed and accessible at [[https://tanmay-portfolio.vercel.app](https://tanmay-portfolio.vercel.app)](https://tanmay-portfolioz.vercel.app/)
 
 ## Credits
 
