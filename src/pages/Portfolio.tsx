@@ -9,6 +9,7 @@ import Resume from '@/components/Resume';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
+import Services from '@/components/Services';
 
 const Portfolio = () => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const Portfolio = () => {
       <Hero />
       <About />
       <Skills />
+      <Services />
       <Projects />
       <Resume />
       <Contact />

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, User, FileText, BarChart3, Code, Mail, Menu, X } from 'lucide-react';
+import { Home, User, FileText, BarChart3, Code, Mail, Menu, X, Laptop } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Navigation = () => {
@@ -37,12 +37,13 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: <Home size={20} /> },
-    { id: 'about', label: 'About', icon: <User size={20} /> },
-    { id: 'skills', label: 'Skills', icon: <BarChart3 size={20} /> },
-    { id: 'projects', label: 'Projects', icon: <Code size={20} /> },
-    { id: 'resume', label: 'Resume', icon: <FileText size={20} /> },
-    { id: 'contact', label: 'Contact', icon: <Mail size={20} /> },
+    { id: 'home', label: 'Home', icon: <Home size={20} />, path: '/' },
+    { id: 'about', label: 'About', icon: <User size={20} />, path: '/#about' },
+    { id: 'skills', label: 'Skills', icon: <BarChart3 size={20} />, path: '/#skills' },
+    { id: 'services', label: 'Services', icon: <Laptop size={20} />, path: '/services' },
+    { id: 'projects', label: 'Projects', icon: <Code size={20} />, path: '/#projects' },
+    { id: 'resume', label: 'Resume', icon: <FileText size={20} />, path: '/#resume' },
+    { id: 'contact', label: 'Contact', icon: <Mail size={20} />, path: '/#contact' },
   ];
 
   return (
@@ -64,18 +65,33 @@ const Navigation = () => {
             <ul className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    className={cn(
-                      'flex items-center justify-center w-12 h-12 rounded-full transition-all',
-                      activeSection === item.id
-                        ? 'bg-portfolio-accent text-white'
-                        : 'bg-white/70 text-portfolio-primary hover:bg-portfolio-accent hover:text-white'
-                    )}
-                    title={item.label}
-                  >
-                    {item.icon}
-                  </a>
+                  {item.path.startsWith('/#') ? (
+                    <a
+                      href={item.path.substring(1)} // Remove the leading slash for hash links
+                      className={cn(
+                        'flex items-center justify-center w-12 h-12 rounded-full transition-all',
+                        activeSection === item.id
+                          ? 'bg-portfolio-accent text-white'
+                          : 'bg-white/70 text-portfolio-primary hover:bg-portfolio-accent hover:text-white'
+                      )}
+                      title={item.label}
+                    >
+                      {item.icon}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className={cn(
+                        'flex items-center justify-center w-12 h-12 rounded-full transition-all',
+                        activeSection === item.id
+                          ? 'bg-portfolio-accent text-white'
+                          : 'bg-white/70 text-portfolio-primary hover:bg-portfolio-accent hover:text-white'
+                      )}
+                      title={item.label}
+                    >
+                      {item.icon}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -94,19 +110,35 @@ const Navigation = () => {
           <ul className="flex flex-col gap-6">
             {navItems.map((item) => (
               <li key={item.id} className="text-center">
-                <a
-                  href={`#${item.id}`}
-                  className={cn(
-                    'flex items-center gap-3 text-lg px-8 py-3 rounded-lg transition-all',
-                    activeSection === item.id
-                      ? 'bg-portfolio-accent text-white'
-                      : 'text-white hover:bg-portfolio-accent/30'
-                  )}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                </a>
+                {item.path.startsWith('/#') ? (
+                  <a
+                    href={item.path.substring(1)} // Remove the leading slash for hash links
+                    className={cn(
+                      'flex items-center gap-3 text-lg px-8 py-3 rounded-lg transition-all',
+                      activeSection === item.id
+                        ? 'bg-portfolio-accent text-white'
+                        : 'text-white hover:bg-portfolio-accent/30'
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.icon}
+                    <span>{item.label}</span>
+                  </a>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className={cn(
+                      'flex items-center gap-3 text-lg px-8 py-3 rounded-lg transition-all',
+                      activeSection === item.id
+                        ? 'bg-portfolio-accent text-white'
+                        : 'text-white hover:bg-portfolio-accent/30'
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.icon}
+                    <span>{item.label}</span>
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
