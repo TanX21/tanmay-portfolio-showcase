@@ -64,15 +64,7 @@ const Services = () => {
 
   return (
     <section id="services" className="py-20 bg-portfolio-dark relative overflow-hidden">
-      {/* Top decorative element */}
-      <div className="absolute top-0 left-0 w-full">
-        <img 
-          src="/images/bush2.png" 
-          alt=""
-          className="w-full object-cover rotate-180 opacity-20"
-          style={{ height: '80px' }}
-        />
-      </div>
+     
       
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="section-title text-white mb-4">Services</h2>
@@ -139,33 +131,7 @@ const Services = () => {
         </div>
       </div>
       
-      {/* Left leaf decoration */}
-      <div className="absolute bottom-0 left-0 opacity-20 z-0">
-        <img 
-          src="/images/leaf1.png" 
-          alt=""
-          className="w-64 h-auto"
-        />
-      </div>
-      
-      {/* Right leaf decoration */}
-      <div className="absolute bottom-0 right-0 opacity-20 z-0">
-        <img 
-          src="/images/leaf2.png" 
-          alt=""
-          className="w-64 h-auto"
-        />
-      </div>
-      
-      {/* Bottom decorative element */}
-      <div className="absolute bottom-0 left-0 w-full">
-        <img 
-          src="/images/mount2.png" 
-          alt=""
-          className="w-full object-cover opacity-10"
-          style={{ height: '100px' }}
-        />
-      </div>
+    
     </section>
   );
 };

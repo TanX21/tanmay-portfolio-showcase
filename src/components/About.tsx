@@ -14,12 +14,12 @@ const About = () => {
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden border-4 border-white/20">
                 <img 
-                  src="/images/profile.jpg" 
+                  src="/images/MyProfile.jpg" 
                   alt="Tanmay Dhiman" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-5 -right-5 bg-portfolio-accent text-white py-2 px-4 rounded-lg shadow-lg">
+              <div className=" absolute -bottom-5 left-12  bg-portfolio-accent text-white py-2 px-6 rounded-lg shadow-lg">
                 <span className="font-semibold">Software Engineer</span>
               </div>
             </div>

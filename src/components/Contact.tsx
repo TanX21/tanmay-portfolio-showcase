@@ -1,20 +1,27 @@
-
 import React, { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { MapPin, Phone, Mail, Send, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const ContactInfo = ({ icon, title, content, link = "" }: { icon: React.ReactNode, title: string, content: string, link?: string }) => {
+const ContactInfo = ({
+  icon,
+  title,
+  content,
+  link = "",
+}: {
+  icon: React.ReactNode;
+  title: string;
+  content: string;
+  link?: string;
+}) => {
   return (
     <div className="contact-info-item">
-      <div className="contact-icon">
-        {icon}
-      </div>
+      <div className="contact-icon">{icon}</div>
       <div>
         <h3 className="font-semibold text-white">{title}</h3>
         {link ? (
-          <a 
-            href={link} 
+          <a
+            href={link}
             className="text-white/80 hover:text-portfolio-accent transition-colors"
           >
             {content}
@@ -33,43 +40,49 @@ const Contact = () => {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      // Simulate form submission with a delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // In a real implementation, you would send the data to a server
-      console.log("Form data submitted:", formData);
-      
+      const response = await fetch("https://formspree.io/f/xovdznqa", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error("Failed to send message");
+
       toast({
         title: "Message sent successfully!",
         description: "Thank you for contacting me. I'll get back to you soon.",
       });
-      
-      // Reset form
+
       setFormData({
         name: "",
         email: "",
         subject: "",
-        message: ""
+        message: "",
       });
     } catch (error) {
       toast({
         title: "Message failed to send",
         description: "Please try again or contact me directly via email.",
-        variant: "destructive"
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -80,31 +93,31 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-portfolio-primary">
       <div className="container mx-auto px-4">
         <h2 className="section-title text-white">Contact Me</h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-10">
           <div className="md:col-span-5">
             <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
-            
-            <ContactInfo 
+
+            <ContactInfo
               icon={<MapPin size={24} />}
               title="Location"
               content="213, Indira Nagar, Ratlam, IN 457001"
             />
-            
-            <ContactInfo 
+
+            <ContactInfo
               icon={<Mail size={24} />}
               title="Email"
               content="tanmay213@gmail.com"
               link="mailto:tanmay213@gmail.com"
             />
-            
-            <ContactInfo 
+
+            <ContactInfo
               icon={<Phone size={24} />}
               title="Call"
               content="+91 7000184797"
               link="tel:+917000184797"
             />
-            
+
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Follow Me</h3>
               <div className="flex gap-4">
@@ -131,12 +144,17 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="md:col-span-7">
-            <form onSubmit={handleSubmit} className="bg-white/5 rounded-xl p-8">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white/5 rounded-xl p-8"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-white/90 mb-2">Your Name</label>
+                  <label htmlFor="name" className="block text-white/90 mb-2">
+                    Your Name
+                  </label>
                   <input
                     type="text"
                     id="name"
@@ -145,11 +163,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:border-portfolio-accent"
-                    placeholder="John Doe"
+                    placeholder="Name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-white/90 mb-2">Your Email</label>
+                  <label htmlFor="email" className="block text-white/90 mb-2">
+                    Your Email
+                  </label>
                   <input
                     type="email"
                     id="email"
@@ -158,13 +178,15 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:border-portfolio-accent"
-                    placeholder="john@example.com"
+                    placeholder="mail@example.com"
                   />
                 </div>
               </div>
-              
+
               <div className="mt-6">
-                <label htmlFor="subject" className="block text-white/90 mb-2">Subject</label>
+                <label htmlFor="subject" className="block text-white/90 mb-2">
+                  Subject
+                </label>
                 <input
                   type="text"
                   id="subject"
@@ -176,9 +198,11 @@ const Contact = () => {
                   placeholder="Project Inquiry"
                 />
               </div>
-              
+
               <div className="mt-6">
-                <label htmlFor="message" className="block text-white/90 mb-2">Message</label>
+                <label htmlFor="message" className="block text-white/90 mb-2">
+                  Message
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -190,27 +214,33 @@ const Contact = () => {
                   placeholder="Hello Tanmay, I'd like to discuss a project with you..."
                 />
               </div>
-              
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={cn(
-                  "mt-6 bg-portfolio-accent hover:bg-portfolio-accent/80 text-white px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2",
-                  isSubmitting && "opacity-70 cursor-not-allowed"
-                )}
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 size={20} className="animate-spin" />
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send size={20} />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </button>
+
+              {/* Honeypot for spam bots */}
+              <input type="text" name="_gotcha" style={{ display: 'none' }} />
+
+            <div className="mt-6 flex justify-center">
+  <button
+    type="submit"
+    disabled={isSubmitting}
+    className={cn(
+      "bg-portfolio-accent hover:bg-portfolio-accent/80 text-white px-9 py-3 rounded-lg transition-colors flex items-center justify-center gap-2",
+      isSubmitting && "opacity-70 cursor-not-allowed"
+    )}
+  >
+    {isSubmitting ? (
+      <>
+        <Loader2 size={20} className="animate-spin" />
+        <span>Sending...</span>
+      </>
+    ) : (
+      <>
+        <Send size={20} />
+        <span>Send Message</span>
+      </>
+    )}
+  </button>
+</div>
+
             </form>
           </div>
         </div>

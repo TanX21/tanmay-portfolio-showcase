@@ -78,6 +78,13 @@ const Resume = () => {
                 "Sketching"
               ]}
             />
+
+            <ResumeItem 
+              title="CERTIFICATION"
+              bullets={[
+                "MERN Stack Developer"
+              ]}
+            />
           </div>
           
           <div>
@@ -116,12 +123,6 @@ const Resume = () => {
               ]}
             />
             
-            <ResumeItem 
-              title="CERTIFICATION"
-              bullets={[
-                "MERN Stack Developer"
-              ]}
-            />
           </div>
         </div>
         

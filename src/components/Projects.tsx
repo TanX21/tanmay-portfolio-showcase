@@ -19,56 +19,58 @@ const projects: Project[] = [
     id: 1,
     title: "BookStore E-commerce",
     description: "Full-stack MERN application for an online BookStore with user authentication and shopping cart functionalities.",
-    image: "/images/project-bookstore.jpg",
-    tags: ["React", "Node.js", "Express", "MongoDB", "Redux"],
+    image: "/images/bookstore.png",
+    tags: ["React", "Node.js", "Express", "MongoDB", "Redux", "JWT"],
     liveUrl: "https://tanmay-book-store.vercel.app/",
-    githubUrl: "https://github.com/TanX21/bookstore",
+    githubUrl: "https://github.com/TanX21?tab=repositories",
     category: "web"
   },
   {
     id: 2,
     title: "Online Bike Rental System",
     description: "A web application that allows users to rent bikes and request repair services with admin panel.",
-    image: "/images/project-bike-rental.jpg",
+    image: "/images/BikeRental.png",
     tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    githubUrl: "https://github.com/TanX21/bike-rental",
+    // githubUrl: "https://github.com/TanX21/bike-rental",
     category: "web"
   },
   {
     id: 3,
     title: "Portfolio Website",
     description: "Professional portfolio website showcasing skills, projects, and resume with contact form.",
-    image: "/images/project-portfolio.jpg",
-    tags: ["React", "Tailwind CSS", "Animation"],
+    image: "/images/portfolio.png",
+    tags: ["React", "Tailwind CSS", "Animation", "TypeScript"],
     liveUrl: "#",
     category: "web"
   },
   {
     id: 4,
-    title: "E-commerce Dashboard",
-    description: "Admin dashboard for e-commerce website with sales analytics, inventory management and user tracking.",
-    image: "/images/project-dashboard.jpg",
-    tags: ["React", "Chart.js", "Node.js", "Express"],
-    githubUrl: "https://github.com/TanX21/admin-dashboard",
+    title: "Neon Shop",
+    description: "E-commerce website with sales analytics, inventory management and user tracking.",
+    image: "/images/Neonshop.png",
+    tags: ["HTML5", "CSS3", "JavaScript", "Local Storage"],
+    liveUrl: "https://tanx21.github.io/Neon-Shop/",
+    githubUrl: "https://github.com/TanX21?tab=repositories",
     category: "web"
   },
   {
     id: 5,
     title: "Weather App",
     description: "Real-time weather application that shows current weather and forecast based on geolocation.",
-    image: "/images/project-weather.jpg",
+    image: "/images/weather.png",
     tags: ["JavaScript", "API", "Responsive"],
-    githubUrl: "https://github.com/TanX21/weather-app",
-    liveUrl: "https://tanx21-weather.vercel.app",
+    githubUrl: "https://github.com/TanX21/Wheater-App",
+    liveUrl: "https://tanx21.github.io/Wheater-App/",
     category: "app"
   },
   {
     id: 6,
-    title: "Task Manager",
-    description: "A simple yet effective task management application with drag and drop functionality.",
-    image: "/images/project-task.jpg",
-    tags: ["React", "Redux", "Local Storage"],
-    githubUrl: "https://github.com/TanX21/task-manager",
+    title: "Rock, Paper & Scissors",
+    description: "A interactive game where users play against the computer by selecting one of the three options.",
+    image: "/images/game.png",
+    tags: ["HTML", "CSS", "JavaScript"],
+    githubUrl: "https://github.com/TanX21/RockPaperS",
+    liveUrl: "https://tanx21.github.io/RockPaperS/",
     category: "app"
   }
 ];
@@ -131,7 +133,7 @@ const Projects = () => {
                   {project.tags.map((tag, index) => (
                     <span 
                       key={index}
-                      className="bg-portfolio-accent/20 text-portfolio-accent text-xs px-2 py-1 rounded"
+                      className="bg-portfolio-accent/20 text-white text-xs px-2 py-1 rounded"
                     >
                       {tag}
                     </span>
