@@ -40,7 +40,8 @@ const projects: Project[] = [
     description: "Professional portfolio website showcasing skills, projects, and resume with contact form.",
     image: "/images/portfolio.png",
     tags: ["React", "Tailwind CSS", "Animation", "TypeScript"],
-    liveUrl: "#",
+    liveUrl: "https://tanmay-portfolioz.vercel.app/",
+    githubUrl: "https://github.com/TanX21/tanmay-portfolio-showcase",
     category: "web"
   },
   {
