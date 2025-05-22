@@ -1,6 +1,9 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -13,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 252 42% 38%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 217 63% 69%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 263 24% 54%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,53 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins scroll-smooth;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    @apply bg-gradient-to-t from-portfolio-light to-portfolio-secondary;
+  }
+  
+  .primary-bg {
+    @apply bg-portfolio-primary;
+  }
+  
+  .progress-container {
+    @apply w-full bg-gray-300 rounded-full h-2.5 mb-4;
+  }
+  
+  .progress-bar {
+    @apply bg-portfolio-accent h-2.5 rounded-full;
+  }
+  
+  .nav-link {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-white/10;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-center relative pb-3;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply block absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-portfolio-accent;
+  }
+  
+  .contact-info-item {
+    @apply flex items-start md:items-center gap-4 mb-6;
+  }
+  
+  .contact-icon {
+    @apply flex items-center justify-center w-12 h-12 rounded-full bg-portfolio-accent text-white;
+  }
+  
+  .social-icon {
+    @apply flex items-center justify-center w-12 h-12 rounded-full bg-white text-portfolio-primary transition-all hover:scale-110 hover:bg-portfolio-accent hover:text-white;
   }
 }
