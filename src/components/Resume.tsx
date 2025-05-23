@@ -93,7 +93,7 @@ const Resume = () => {
             <ResumeItem 
               title="MERN Stack Developer"
               subtitle="Clean Code, Indore, IN"
-              date="October 2023 - April 2024"
+              date="October 2024 - April 2025"
               bullets={[
                 "Internship on MERN Stack",
                 "Lead in the design, development, and implementation of the graphic, layout, and production communication materials",
