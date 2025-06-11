@@ -84,11 +84,7 @@ const About = () => {
               Thanks for stopping by—feel free to explore my work and get in touch!
             </p>
 
-<<<<<<< HEAD
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-=======
-            <div className="flex flex-col sm:flex-row gap-4">
->>>>>>> 60f9aa72ba5d338c628319cc5b265ba6d143c902
               <a 
                 href="/files/Tanmay-MERN-CV.pdf" 
                 download="Tanmay-MERN-CV"
