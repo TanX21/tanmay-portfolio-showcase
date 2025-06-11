@@ -42,7 +42,7 @@ const Navigation = () => {
     { id: 'skills', label: 'Skills', icon: <BarChart3 size={20} />, path: '/#skills' },
     { id: 'services', label: 'Services', icon: <Laptop size={20} />, path: '/#services' },
     { id: 'projects', label: 'Projects', icon: <Code size={20} />, path: '/#projects' },
-    { id: 'resume', label: 'Resume', icon: <FileText size={20} />, path: '/#resume' },
+    // { id: 'resume', label: 'Resume', icon: <FileText size={20} />, path: '/#resume' },
     { id: 'contact', label: 'Contact', icon: <Mail size={20} />, path: '/#contact' },
   ];
 

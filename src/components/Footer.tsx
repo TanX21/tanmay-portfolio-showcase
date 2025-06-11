@@ -64,9 +64,9 @@ const Footer = () => {
         <div className="text-white/70 text-sm">
           <p className="mb-1">Email: <a href="mailto:tanmay213@gmail.com" className="hover:text-portfolio-accent transition-colors">tanmay213@gmail.com</a></p>
           <p className="flex items-center justify-center">
-            &copy; {currentYear} Tanmay Dhiman. All Rights Reserved. Made with 
-            <Heart size={16} className="mx-1 text-red-500" fill="currentColor" /> 
-            by <a href="#home" className="ml-1 text-portfolio-accent hover:underline">TanX21</a>
+            &copy; {currentYear} Tanmay Dhiman. All Rights Reserved.
+            {/* <Heart size={16} className="mx-1 text-red-500" fill="currentColor" /> 
+            by <a href="#home" className="ml-1 text-portfolio-accent hover:underline">TanX21</a> */}
           </p>
         </div>
       </div>

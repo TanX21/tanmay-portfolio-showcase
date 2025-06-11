@@ -1,9 +1,15 @@
-
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Download, Eye } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const About = () => {
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="about" className="py-20 bg-portfolio-primary">
       <div className="container mx-auto px-4">
@@ -19,7 +25,7 @@ const About = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className=" absolute -bottom-5 left-12  bg-portfolio-accent text-white py-2 px-6 rounded-lg shadow-lg">
+              <div className=" relative m-4  bg-portfolio-accent text-white py-2 px-6 rounded-lg shadow-lg text-center">
                 <span className="font-semibold">Software Engineer</span>
               </div>
             </div>
@@ -70,13 +76,32 @@ const About = () => {
               </div>
             </div>
             
-            <p className="text-white/90">
+            <p className="text-white/90 mb-8">
               Hi! I'm a Software Engineer, Web Developer, and Computer Science student based in Indore, Madhya Pradesh, India. I specialize in building scalable web applications and RESTful APIs using JavaScript, React.js, Node.js, and Express.js.
               <br /><br />
               I'm passionate about creating clean, efficient, and impactful software. With a strong attention to detail and a love for learning, I enjoy working on projects that solve real problems and make a difference. Whether I'm writing code, reading, speaking, or sharing ideas—I'm always looking for ways to grow and contribute.
               <br /><br />
               Thanks for stopping by—feel free to explore my work and get in touch!
             </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="/files/Tanmay-MERN-CV.pdf" 
+                download="Tanmay-MERN-CV"
+                className="flex items-center justify-center gap-2 bg-portfolio-accent hover:bg-portfolio-accent/80 text-white px-6 py-3 rounded-lg transition-colors"
+              >
+                <Download size={20} />
+                <span>Download Resume</span>
+              </a>
+              
+              <button 
+                onClick={scrollToProjects}
+                className="flex items-center justify-center gap-2 border-2 border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white px-6 py-3 rounded-lg transition-colors"
+              >
+                <Eye size={20} />
+                <span>View My Work</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

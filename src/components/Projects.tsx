@@ -31,7 +31,7 @@ const projects: Project[] = [
     description: "A web application that allows users to rent bikes and request repair services with admin panel.",
     image: "/images/BikeRental.png",
     tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    // githubUrl: "https://github.com/TanX21/bike-rental",
+    githubUrl: "https://github.com/TanX21/Bike-Rentals-PHP",
     category: "web"
   },
   {
@@ -73,7 +73,18 @@ const projects: Project[] = [
     githubUrl: "https://github.com/TanX21/RockPaperS",
     liveUrl: "https://tanx21.github.io/RockPaperS/",
     category: "app"
-  }
+  },
+{
+  id: 7,
+  title: "Task Manager with Admin Panel",
+  description: "A platform where admins assign and update tasks, manage users, and monitor activity through a responsive dashboard.",
+  image: "/images/Taskmanager.png",
+  tags: ["React", "TypeScript", "Tailwind CSS"],
+  // githubUrl: "https://github.com/your-username/task-manager",
+  liveUrl: "https://task-wallet-nexus.vercel.app/",
+  category: "app"
+}
+
 ];
 
 const Projects = () => {
